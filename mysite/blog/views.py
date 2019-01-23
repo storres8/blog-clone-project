@@ -13,6 +13,8 @@ from django.urls import reverse_lazy
 from django.contrib.auth.mixins import LoginRequiredMixin
 from django.contrib.auth.decorators import login_required
 
+from django.utils import timezone
+
 from blog.models import Post, Comment
 from blog.forms import PostForm, CommentForm
 
@@ -40,7 +42,7 @@ class PostCreateView(LoginRequiredMixin, CreateView):
 
 class PostUpdateView(LoginRequiredMixin, UpdateView):
     login_url='/login/'
-    redirect_field_name = 'blog/post_detail.html
+    redirect_field_name = 'blog/post_detail.html'
     form_class = PostForm
     model = Post
 
